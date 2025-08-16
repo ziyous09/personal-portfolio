@@ -1,8 +1,12 @@
-import React from 'react'
+import { useState,Suspense } from 'react';
+import './Home.css';
+
 
 const Home = () => {
   return (
-    <div>Home</div>
+    <div id="home">
+     
+    </div>
   )
 }
 

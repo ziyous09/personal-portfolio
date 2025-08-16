@@ -1,8 +1,8 @@
 import React from 'react'
-
+import './Work.css'
 const Work = () => {
   return (
-    <div>Work</div>
+    <div id='work'>Work</div>
   )
 }
 

@@ -1,3 +1,5 @@
+# Ignore large robot.bin file
+personal-portfolio/public/robot.bin
 # Logs
 logs
 *.log
