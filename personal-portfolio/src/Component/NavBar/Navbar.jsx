@@ -1,29 +1,27 @@
+// Change min-h-screen to h-[100px] in the main container div
+// Also update the header's top position and ensure the navbar minHeight is 100px
+
 import React, { useState } from 'react';
 import ScrambleText from './../Effects/ScrambleText';
 
-// Main App Component - Sets up the page background and layout
 export default function App() {
-  // Theme state: 'dark' or 'light'
   const [theme, setTheme] = useState('dark');
 
-  // Update body class for theme for global styling if needed
   React.useEffect(() => {
-    document.body.className = ''; // Clear existing classes
+    document.body.className = '';
     document.body.classList.add(theme === 'dark' ? 'bg-black' : 'bg-white');
   }, [theme]);
 
-  // Theme toggle handler
   const toggleTheme = () => {
     setTheme(prevTheme => (prevTheme === 'dark' ? 'light' : 'dark'));
   };
 
   return (
     <div
-      className={`relative min-h-screen w-full ${
+      className={`relative h-[100px] w-full ${
         theme === 'dark' ? 'bg-black' : 'bg-white'
       } flex flex-col items-center p-4 sm:p-8 font-sans transition-colors duration-300`}
     >
-      {/* Background decorative shapes (only for dark theme for better contrast) */}
       {theme === 'dark' && (
         <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0">
           <div className="absolute w-[300px] h-[300px] sm:w-[500px] sm:h-[500px] bg-green-500/20 rounded-full blur-[150px] -top-20 -left-40"></div>
@@ -31,9 +29,7 @@ export default function App() {
         </div>
       )}
 
-      {/* Header container for Logo, Navbar, and Buttons */}
-      <header className="fixed top-[40px] w-full max-w-7xl mx-auto z-50 px-4 flex items-center justify-between">
-        {/* Left Side: Logo */}
+      <header className="fixed top-0 w-full max-w-7xl mx-auto z-50 px-4 flex items-center justify-between h-[100px]">
         <div
           className={`${
             theme === 'dark' ? 'text-white' : 'text-black'
@@ -42,40 +38,31 @@ export default function App() {
           PORT<span className="text-green-500">F</span>OLIO
           <span className="text-green-500">/&gt;</span>
         </div>
-
-        {/* Center: Navbar Component */}
         <div className="absolute left-1/2 -translate-x-1/2">
           <Navbar theme={theme} />
         </div>
-
-        {/* Right Side: Action Buttons */}
         <div className="flex items-center gap-3">
-          {/* Elegant & Aligned Theme Toggle Button */}
           <button
             onClick={toggleTheme}
             aria-label="Toggle light/dark theme"
             className={`relative flex items-center h-8 rounded-full p-1 w-[60px] transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-green-500/50 
               ${theme === 'light' ? 'bg-gray-200' : 'bg-gray-900'}`}
           >
-            {/* Sliding Background */}
             <span
               className={`absolute h-6 w-6 rounded-full bg-green-500 shadow-lg transform transition-transform duration-300 ease-in-out 
                 ${theme === 'light' ? 'translate-x-[2px]' : 'translate-x-[30px]'}`}
             />
-            {/* Light Icon Wrapper */}
             <span className="relative z-10 flex-1 flex items-center justify-center">
               <svg xmlns="http://www.w3.org/2000/svg" className={`h-4 w-4 transition-colors duration-300 ${theme === 'light' ? 'text-black' : 'text-gray-400'}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
               </svg>
             </span>
-            {/* Dark Icon Wrapper */}
             <span className="relative z-10 flex-1 flex items-center justify-center">
               <svg xmlns="http://www.w3.org/2000/svg" className={`h-4 w-4 transition-colors duration-300 ${theme === 'dark' ? 'text-black' : 'text-gray-400'}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
               </svg>
             </span>
           </button>
-          {/* Get Resume Button */}
           <button
             className={`hidden sm:flex items-center justify-center gap-2 font-medium transition-colors duration-300 h-11 px-5 rounded-full backdrop-blur-xl shadow-lg group overflow-hidden relative ${
               theme === 'dark'
@@ -105,55 +92,22 @@ export default function App() {
           </button>
         </div>
       </header>
-
-      {/* Hero Section Content */}
-      <div
-        className={`relative z-10 flex flex-col items-center justify-center text-center ${
-          theme === 'dark' ? 'text-white' : 'text-black'
-        } pt-[180px]`}
-      >
-        <p className="text-green-500 M-0 font-semibold text-sm sm:text-base">COMPUTER SCIENCE EXPERT</p>
-        <h1 className="text-5xl sm:text-7xl md:text-8xl font-bold mt-2 leading-tight">
-          ANONYMOUS
-        </h1>
-        <p
-          className={`max-w-xl md:max-w-2xl mt-6 ${
-            theme === 'dark' ? 'text-gray-300' : 'text-gray-700'
-          } text-base sm:text-lg`}
-        >
-          Fundamental Studio crafts exceptional digital experiences that transform brands and captivate audiences. We're the strategic partner that brings your vision to life.
-        </p>
-        <button
-          className={`mt-8 px-6 py-3 rounded-full ${
-            theme === 'dark'
-              ? 'bg-white/10 border border-white/20 text-white hover:bg-white/20'
-              : 'bg-black/10 border border-black/20 text-black hover:bg-black/20'
-          } font-semibold flex items-center gap-2 backdrop-blur-sm transition-colors duration-300`}
-        >
-          Get Resume
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-            <path fillRule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"/>
-          </svg>
-        </button>
-      </div>
     </div>
   );
 }
 
-// Navbar Component
 const Navbar = ({ theme }) => {
   const navLinks = ['Home', 'About', 'Work', 'Contact', 'Blog'];
 
   return (
     <div
-      className={`relative px-12 sm:px-20 py-4 rounded-full ${ // INCREASED px-8->px-12, sm:px-12->sm:px-20
+      className={`relative px-12 sm:px-20 py-4 rounded-full ${
         theme === 'dark'
           ? 'bg-black/50 border border-white/20'
           : 'bg-white/60 border border-black/20'
       } backdrop-blur-xl shadow-lg`}
-      style={{ minHeight: '56px', minWidth: '490px' }} // INCREASED minWidth for wider navbar
+      style={{ minHeight: '60px', minWidth: '490px'}}
     >
-      {/* Neon circular dot effect styles */}
       <style>
         {`
           .nav-dot {
@@ -193,7 +147,6 @@ const Navbar = ({ theme }) => {
         `}
       </style>
       <div className="flex items-center gap-7">
-        {/* Center: Navigation Links */}
         <div className="hidden lg:flex items-center gap-5">
           {navLinks.map((link) => (
             <div
@@ -220,14 +173,12 @@ const Navbar = ({ theme }) => {
                   justifyContent: 'center'
                 }}
               >
-                {/* Circular neon dot above the element, appears on hover */}
                 <span
                   className={`nav-dot ${theme === 'dark' ? 'nav-dot-dark' : ''}`}
                 ></span>
                 <span className="relative z-10 flex items-center justify-center w-full">
                   <ScrambleText value={link} fontSize="18px" />
                 </span>
-                {/* Elegant underline effect */}
                 <span
                   className={`
                     absolute left-0 bottom-0 w-full h-[1px]
