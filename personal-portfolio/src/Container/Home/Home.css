@@ -5,7 +5,8 @@
 #home {
     height: 100vh;
     width: 100%;
-    background: #000000 radial-gradient(circle at top left, rgba(0, 255, 132, 0.12), transparent 40%);
+    /* CHANGED: Background is now transparent to show the Vanta effect */
+    background: transparent;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -13,6 +14,9 @@
     color: #fff;
     font-family: 'Poppins', sans-serif;
     overflow: hidden;
+    /* ADDED: z-index to ensure content is on top of the background */
+    position: relative;
+    z-index: 1;
 }
 
 /* --- Hero Content --- */
@@ -36,7 +40,26 @@
     font-weight: 700;
     margin: 0;
     line-height: 1.1;
+    /* ADDED: Set a fixed height to prevent layout shift during word change */
+    height: 110px; 
 }
+
+/* ADDED: Keyframe animation for the typing effect */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.typing-animation {
+  animation: fadeIn 0.8s ease-in-out;
+}
+
 
 .hero-content .description {
     font-size: 18px;
@@ -47,63 +70,56 @@
 
 /* --- NEW Button Style (from Navbar file) --- */
 .primary-btn {
-    /* Basic setup */
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 8px; /* gap-2 */
-    font-weight: 500; /* font-medium */
-    height: 44px; /* h-11 */
-    padding: 0 20px; /* px-5 */
-    border-radius: 9999px; /* rounded-full */
-    overflow: hidden; /* Important for the gradient effect */
+    gap: 8px;
+    font-weight: 500;
+    height: 44px;
+    padding: 0 20px;
+    border-radius: 9999px;
+    overflow: hidden;
     cursor: pointer;
-
-    /* Theme-specific styles (dark theme) */
-    background-color: rgba(0, 0, 0, 0.3); /* bg-black/30 */
-    border: 1px solid rgba(255, 255, 255, 0.1); /* border-white/10 */
+    background-color: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     color: #fff;
-    backdrop-filter: blur(16px); /* backdrop-blur-xl */
-    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1); /* shadow-lg */
-    
-    /* Transitions */
+    backdrop-filter: blur(16px);
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
     transition: background-color 0.3s;
 }
 
 .primary-btn:hover {
-    background-color: rgba(0, 0, 0, 0.5); /* hover:bg-black/50 */
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
-/* Gradient overlay that appears on hover */
 .btn-gradient-overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: linear-gradient(to right, rgba(34, 197, 94, 0.2), rgba(34, 197, 94, 0.1)); /* from-green-400/20 to-green-500/10 */
+    background-image: linear-gradient(to right, rgba(34, 197, 94, 0.2), rgba(34, 197, 94, 0.1));
     opacity: 0;
     transition: opacity 0.3s;
-    pointer-events: none; /* Allows clicks to go through to the button */
+    pointer-events: none;
 }
 
 .primary-btn:hover .btn-gradient-overlay {
     opacity: 1;
 }
 
-/* Text and Arrow styling */
 .btn-text,
 .btn-arrow {
-    position: relative; /* To appear above the gradient overlay */
+    position: relative;
     z-index: 10;
     transition: color 0.3s, transform 0.3s;
 }
 
 .primary-btn:hover .btn-text {
-    color: #22c55e; /* group-hover:text-green-500 */
+    color: #22c55e;
 }
 
 .primary-btn:hover .btn-arrow {
-    transform: translateX(4px); /* group-hover:translate-x-1 */
+    transform: translateX(4px);
 }
