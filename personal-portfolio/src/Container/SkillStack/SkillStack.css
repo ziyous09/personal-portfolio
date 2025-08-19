@@ -47,8 +47,3 @@
     flex-direction: column;
 }
 
-/* Creates the space between the two marquee rows */
-.skill-stack-content-wrapper>*:not(:last-child) {
-    margin-bottom: 0.5rem;
-    /* from space-y-8 */
-}
