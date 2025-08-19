@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { MorphingText } from "@/components/magicui/morphing-text";
+
 import './Home.css';
 // import VantaBackground from './../../Component/VantaBackground'; // Import the Vanta component
 
@@ -21,7 +23,7 @@ const Home = () => {
         <div className="hero-content">
           <p className="subtitle">COMPUTER SCIENCE EXPERT</p>
           {/* The h1 now has the typing animation and cycles through words */}
-          <h1 className="typing-animation">{words[currentWordIndex]}</h1>
+          <h1 className="typing-animation"><MorphingText texts={['ELEGANCE', 'INNOVATION', 'CREATIVITY', 'EXCELLENCE']} /></h1>
           <p className="description">
             I craft exceptional digital experiences that transform brands and
             captivate audiences. I am the strategic partner that brings your vision to life.
