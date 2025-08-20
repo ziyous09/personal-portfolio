@@ -1,0 +1,44 @@
+/* --- Skill Card Styles --- */
+.skill-stack-card {
+  display: inline-flex; /* Use flexbox for centering */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  vertical-align: top;
+  width: 12rem; /* Adjusted for a more compact square look */
+  height: 12rem; /* Make it a square */
+  background-image: linear-gradient(to bottom right, #218256, #E1EDE8);
+  margin: 1rem;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), inset 0 1px 3px rgba(255, 255, 255, 0.2);
+  text-align: center;
+  white-space: normal;
+  transition: transform 300ms ease-in-out;
+}
+
+.skill-card:hover {
+  transform: translateY(-0.5rem) scale(1.05); /* Added a slight scale effect on hover */
+}
+
+.skill-card-icon-wrapper {
+  padding-top: 1rem; /* Adjusted padding */
+  padding-bottom: 0.5rem;
+}
+
+.skill-card-icon {
+  height: 5rem; /* Adjusted icon size */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.skill-card-title-wrapper {
+  padding: 0.5rem 1rem 1rem 1rem; /* Adjusted padding */
+}
+
+.skill-card-title {
+  font-weight: 600; /* Semi-bold */
+  font-size: 1.125rem; /* text-lg */
+  color: #ffffff; /* White text for better contrast */
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3); /* Add a subtle shadow to the text */
+}

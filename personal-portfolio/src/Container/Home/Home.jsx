@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { MorphingText } from "@/components/magicui/morphing-text";
 
 import './Home.css';
-// import VantaBackground from './../../Component/VantaBackground'; // Import the Vanta component
+import Background from '../../Component/LandingBackground/background.jsx';
 
 const Home = () => {
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
@@ -17,18 +17,18 @@ const Home = () => {
   }, []);
 
   return (
-    // Wrap the entire section in the VantaBackground component
+    <>
+      <Background >
       <section id="home">
         {/* Hero Content */}
         <div className="hero-content">
           <p className="subtitle">COMPUTER SCIENCE EXPERT</p>
-          {/* The h1 now has the typing animation and cycles through words */}
-          <h1 className="typing-animation"><MorphingText texts={['ELEGANCE', 'INNOVATION', 'CREATIVITY', 'EXCELLENCE']} /></h1>
+          <h1 className="typing-animation">{words[currentWordIndex]}</h1>
           <p className="description">
             I craft exceptional digital experiences that transform brands and
             captivate audiences. I am the strategic partner that brings your vision to life.
           </p>
-          {/* Button remains the same */}
+          {/* Updated Button */}
           <button className="primary-btn">
             <span className="btn-gradient-overlay"></span>
             <span className="btn-text">Get Resume</span>
@@ -48,7 +48,9 @@ const Home = () => {
           </button>
         </div>
       </section>
-  )
+      </Background>
+    </>
+  );
 }
 
 export default Home;

@@ -1,13 +1,14 @@
-export default function SkillCard ({ icon, title }){
+import './SkillCards.css';
+
+export default function SkillCard({ icon, title }) {
   return (
-    // Card is now more compact
-    <div className="inline-block align-top w-64 md:w-72 rounded-xl overflow-hidden shadow-lg bg-white m-4 transform hover:-translate-y-2 transition-transform duration-300 flex-col text-center whitespace-normal">
-      <div className="pt-8 pb-4">
-        <img src={icon} alt={title + ' icon'} className="h-30 mx-auto" />
+    <div className="skill-stack-card">
+      <div className="skill-card-icon-wrapper">
+        <img src={icon} alt={title + ' icon'} className="skill-card-icon" />
       </div>
-      <div className="px-6 py-6">
-        <div className="font-bold text-2xl text-gray-800">{title}</div>
-      </div>
+      {/* <div className="skill-card-title-wrapper">
+        <div className="skill-card-title">{title}</div>
+      </div> */}
     </div>
   );
 };

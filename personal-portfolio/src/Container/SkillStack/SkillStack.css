@@ -1,5 +1,49 @@
-#skillstack {
-    height: 100vh;
+/* General Page Layout Styles for SkillStack Component */
+.skill-stack-container {
     width: 100%;
-    background-color: teal;
+    min-height: 100vh;
+    background-color: #000;
+    /* from bg-gray-50 */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    /* from p-4 */
+    font-family: sans-serif;
+    /* from font-sans */
 }
+
+/* Typography */
+.skill-stack-title {
+    font-size: 3rem;
+    /* from text-5xl */
+    font-weight: 800;
+    /* from font-extrabold */
+    color: #fff;
+    /* from text-gray-800 */
+    margin-bottom: 1rem;
+    /* from mb-4 */
+    letter-spacing: -0.025em;
+    /* from tracking-tight */
+    margin-top: 2rem;
+    /* from mt-8 */
+}
+
+.skill-stack-subtitle {
+    font-size: 1.125rem;
+    /* from text-lg */
+    color: #fff;
+    /* from text-gray-500 */
+    margin-bottom: 3rem;
+    /* from mb-12 */
+}
+
+/* Layout */
+.skill-stack-content-wrapper {
+    width: 100%;
+    max-width: 99%;
+    /* from max-w-6xl */
+    display: flex;
+    flex-direction: column;
+}
+
