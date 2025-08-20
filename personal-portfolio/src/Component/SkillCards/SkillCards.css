@@ -1,47 +1,44 @@
 /* --- Skill Card Styles --- */
 .skill-stack-card {
-  display: inline-block;
+  display: inline-flex; /* Use flexbox for centering */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   vertical-align: top;
-  width: 16rem; /* from w-64 */
-  background-color: #000; /* from bg-white */
-  margin: 1rem; /* from m-4 */
-  border:1px solid #218256;
-  border-radius: 0.75rem; /* from rounded-xl */
-  overflow: hidden; /* from overflow-hidden */
-  box-shadow: 0 10px 15px -3px rgba(1, 255, 90, 0.1), 0 4px 6px -2px rgba(0, 255, 102, 0.05); /* from shadow-lg */
-  text-align: center; /* from text-center */
-  white-space: normal; /* from whitespace-normal */
-  transition: transform 300ms ease-in-out; /* from transition-transform and duration-300 */
+  width: 12rem; /* Adjusted for a more compact square look */
+  height: 12rem; /* Make it a square */
+  background-image: linear-gradient(to bottom right, #218256, #E1EDE8);
+  margin: 1rem;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), inset 0 1px 3px rgba(255, 255, 255, 0.2);
+  text-align: center;
+  white-space: normal;
+  transition: transform 300ms ease-in-out;
 }
 
 .skill-card:hover {
-  transform: translateY(-0.5rem); /* from hover:-translate-y-2 */
-}
-
-/* Responsive width for medium screens and up */
-@media (min-width: 768px) {
-  .skill-card {
-    width: 18rem; /* from md:w-72 */
-  }
+  transform: translateY(-0.5rem) scale(1.05); /* Added a slight scale effect on hover */
 }
 
 .skill-card-icon-wrapper {
-  padding-top: 1rem; /* from pt-8 */
-  padding-bottom: 1rem; /* from pb-4 */
+  padding-top: 1rem; /* Adjusted padding */
+  padding-bottom: 0.5rem;
 }
 
 .skill-card-icon {
-  height: 5rem; /* Approximating a custom h-30 class */
-  margin-left: auto; /* from mx-auto */
-  margin-right: auto; /* from mx-auto */
+  height: 5rem; /* Adjusted icon size */
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .skill-card-title-wrapper {
-  padding: 1.5rem; /* from px-6 and py-6 */
+  padding: 0.5rem 1rem 1rem 1rem; /* Adjusted padding */
 }
 
 .skill-card-title {
-  font-weight: 700; /* from font-bold */
-  font-size: 1.5rem; /* from text-2xl */
-  color: #1f2937; /* from text-gray-800 */
+  font-weight: 600; /* Semi-bold */
+  font-size: 1.125rem; /* text-lg */
+  color: #ffffff; /* White text for better contrast */
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3); /* Add a subtle shadow to the text */
 }
