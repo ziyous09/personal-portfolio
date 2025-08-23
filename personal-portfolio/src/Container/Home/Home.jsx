@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './Home.css';
 import Background from '../../Component/LandingBackground/background.jsx';
+import { MorphingText } from "./../../Component/Effects/MorphText";
 
 const Home = () => {
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
@@ -18,10 +19,12 @@ const Home = () => {
     <div className="home-container">
       <section id="home">
         <Background/>
+        {/* Filter Overlay */}
+        <div className="background-filter"></div>
         {/* Hero Content */}
         <div className="hero-content">
           <p className="subtitle">COMPUTER SCIENCE EXPERT</p>
-          <h1 className="typing-animation">{words[currentWordIndex]}</h1>
+          <MorphingText texts={["ELEGANCE", "INNOVATION","CREATIVITY","EXCELLENCE" ]} />
           <p className="description">
             I craft exceptional digital experiences that transform brands and
             captivate audiences. I am the strategic partner that brings your vision to life.
