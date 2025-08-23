@@ -17,9 +17,9 @@ const Home = () => {
   }, []);
 
   return (
-    <>
-      <Background >
+    <div className="home-container">
       <section id="home">
+        <Background/>
         {/* Hero Content */}
         <div className="hero-content">
           <p className="subtitle">COMPUTER SCIENCE EXPERT</p>
@@ -48,8 +48,7 @@ const Home = () => {
           </button>
         </div>
       </section>
-      </Background>
-    </>
+    </div>
   );
 }
 
